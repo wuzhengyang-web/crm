@@ -1,9 +1,11 @@
 package com.shangma.cn.entity;
 
-import java.util.Date;
+import com.shangma.cn.entity.base.BaseEntity;
+import lombok.Data;
 
-public class Brand {
-    private String id;
+import java.util.Date;
+@Data
+public class Brand extends BaseEntity<String> {
 
     private String brandName;
 
@@ -21,75 +23,5 @@ public class Brand {
 
     private Long updateId;
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
-
-    public String getBrandName() {
-        return brandName;
-    }
-
-    public void setBrandName(String brandName) {
-        this.brandName = brandName == null ? null : brandName.trim();
-    }
-
-    public String getBrandSite() {
-        return brandSite;
-    }
-
-    public void setBrandSite(String brandSite) {
-        this.brandSite = brandSite == null ? null : brandSite.trim();
-    }
-
-    public String getBrandDesc() {
-        return brandDesc;
-    }
-
-    public void setBrandDesc(String brandDesc) {
-        this.brandDesc = brandDesc == null ? null : brandDesc.trim();
-    }
-
-    public String getBrandLogo() {
-        return brandLogo;
-    }
-
-    public void setBrandLogo(String brandLogo) {
-        this.brandLogo = brandLogo == null ? null : brandLogo.trim();
-    }
-
-    public Date getAddTime() {
-        return addTime;
-    }
-
-    public void setAddTime(Date addTime) {
-        this.addTime = addTime;
-    }
-
-    public Long getCreatorId() {
-        return creatorId;
-    }
-
-    public void setCreatorId(Long creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public Long getUpdateId() {
-        return updateId;
-    }
-
-    public void setUpdateId(Long updateId) {
-        this.updateId = updateId;
-    }
 }

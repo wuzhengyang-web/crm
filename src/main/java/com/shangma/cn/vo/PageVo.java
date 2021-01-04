@@ -11,5 +11,5 @@ import java.util.List;
 @Data
 public class PageVo<T> {
     List<T> list;
-    int total;
+    long total;
 }

@@ -1,7 +1,6 @@
-package com.shangma.cn.mapper;
+package com.shangma.cn.mapper.base;
 
-import com.shangma.cn.entity.Brand;
-import com.shangma.cn.entity.BrandExample;
+
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

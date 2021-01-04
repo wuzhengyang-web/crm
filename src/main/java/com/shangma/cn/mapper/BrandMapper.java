@@ -1,31 +1,10 @@
 package com.shangma.cn.mapper;
 
 import com.shangma.cn.entity.Brand;
-import com.shangma.cn.entity.BrandExample;
-import org.apache.ibatis.annotations.Param;
+import com.shangma.cn.mapper.base.BaseMapper;
 
 import java.util.List;
 
-public interface BrandMapper {
-    long countByExample(BrandExample example);
+public interface BrandMapper extends BaseMapper<Brand,String> {
 
-    int deleteByExample(BrandExample example);
-
-    int deleteByPrimaryKey(String id);
-
-    int insert(Brand record);
-
-    int insertSelective(Brand record);
-
-    List<Brand> selectByExample(BrandExample example);
-
-    Brand selectByPrimaryKey(String id);
-
-    int updateByExampleSelective(@Param("record") Brand record, @Param("example") BrandExample example);
-
-    int updateByExample(@Param("record") Brand record, @Param("example") BrandExample example);
-
-    int updateByPrimaryKeySelective(Brand record);
-
-    int updateByPrimaryKey(Brand record);
 }
