@@ -10,7 +10,7 @@ import java.util.Date;
  */
 @Data
 public class BaseEntity<ID> {
-    private String id;
+    private ID id;
     private Date addTime;
 
     private Long creatorId;
@@ -18,4 +18,14 @@ public class BaseEntity<ID> {
     private Date updateTime;
 
     private Long updateId;
+
+    public void setDate(){
+        if (id==null){
+            this.addTime=new Date();
+            this.creatorId=1L;
+        }
+            this.updateTime=new Date();
+            this.updateId=2L;
+
+    }
 }

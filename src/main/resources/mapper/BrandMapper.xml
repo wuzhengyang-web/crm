@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shangma.cn.mapper.BrandMapper">
   <resultMap id="BaseResultMap" type="com.shangma.cn.entity.Brand">
-    <id column="id" jdbcType="VARCHAR" property="id" />
+    <id column="id" jdbcType="BIGINT" property="id" />
     <result column="brand_name" jdbcType="VARCHAR" property="brandName" />
     <result column="brand_site" jdbcType="VARCHAR" property="brandSite" />
     <result column="brand_desc" jdbcType="VARCHAR" property="brandDesc" />
@@ -88,15 +88,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_brand
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from t_brand
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.shangma.cn.entity.BrandExample">
     delete from t_brand
@@ -109,7 +109,7 @@
       brand_desc, brand_logo, add_time, 
       creator_id, update_time, update_id
       )
-    values (#{id,jdbcType=VARCHAR}, #{brandName,jdbcType=VARCHAR}, #{brandSite,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{brandName,jdbcType=VARCHAR}, #{brandSite,jdbcType=VARCHAR}, 
       #{brandDesc,jdbcType=VARCHAR}, #{brandLogo,jdbcType=VARCHAR}, #{addTime,jdbcType=TIMESTAMP}, 
       #{creatorId,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=BIGINT}
       )
@@ -147,7 +147,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=VARCHAR},
+        #{id,jdbcType=BIGINT},
       </if>
       <if test="brandName != null">
         #{brandName,jdbcType=VARCHAR},
@@ -185,7 +185,7 @@
     update t_brand
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=VARCHAR},
+        id = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.brandName != null">
         brand_name = #{record.brandName,jdbcType=VARCHAR},
@@ -218,7 +218,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update t_brand
-    set id = #{record.id,jdbcType=VARCHAR},
+    set id = #{record.id,jdbcType=BIGINT},
       brand_name = #{record.brandName,jdbcType=VARCHAR},
       brand_site = #{record.brandSite,jdbcType=VARCHAR},
       brand_desc = #{record.brandDesc,jdbcType=VARCHAR},
@@ -259,7 +259,7 @@
         update_id = #{updateId,jdbcType=BIGINT},
       </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.shangma.cn.entity.Brand">
     update t_brand
@@ -271,6 +271,6 @@
       creator_id = #{creatorId,jdbcType=BIGINT},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       update_id = #{updateId,jdbcType=BIGINT}
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

@@ -585,73 +585,73 @@ public class SupplierExample {
             return (Criteria) this;
         }
 
-        public Criteria andSuoolierBrankCodeIsNull() {
-            addCriterion("suoolier_brank_code is null");
+        public Criteria andSupplierBrankCodeIsNull() {
+            addCriterion("supplier_brank_code is null");
             return (Criteria) this;
         }
 
-        public Criteria andSuoolierBrankCodeIsNotNull() {
-            addCriterion("suoolier_brank_code is not null");
+        public Criteria andSupplierBrankCodeIsNotNull() {
+            addCriterion("supplier_brank_code is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSuoolierBrankCodeEqualTo(String value) {
-            addCriterion("suoolier_brank_code =", value, "suoolierBrankCode");
+        public Criteria andSupplierBrankCodeEqualTo(String value) {
+            addCriterion("supplier_brank_code =", value, "supplierBrankCode");
             return (Criteria) this;
         }
 
-        public Criteria andSuoolierBrankCodeNotEqualTo(String value) {
-            addCriterion("suoolier_brank_code <>", value, "suoolierBrankCode");
+        public Criteria andSupplierBrankCodeNotEqualTo(String value) {
+            addCriterion("supplier_brank_code <>", value, "supplierBrankCode");
             return (Criteria) this;
         }
 
-        public Criteria andSuoolierBrankCodeGreaterThan(String value) {
-            addCriterion("suoolier_brank_code >", value, "suoolierBrankCode");
+        public Criteria andSupplierBrankCodeGreaterThan(String value) {
+            addCriterion("supplier_brank_code >", value, "supplierBrankCode");
             return (Criteria) this;
         }
 
-        public Criteria andSuoolierBrankCodeGreaterThanOrEqualTo(String value) {
-            addCriterion("suoolier_brank_code >=", value, "suoolierBrankCode");
+        public Criteria andSupplierBrankCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("supplier_brank_code >=", value, "supplierBrankCode");
             return (Criteria) this;
         }
 
-        public Criteria andSuoolierBrankCodeLessThan(String value) {
-            addCriterion("suoolier_brank_code <", value, "suoolierBrankCode");
+        public Criteria andSupplierBrankCodeLessThan(String value) {
+            addCriterion("supplier_brank_code <", value, "supplierBrankCode");
             return (Criteria) this;
         }
 
-        public Criteria andSuoolierBrankCodeLessThanOrEqualTo(String value) {
-            addCriterion("suoolier_brank_code <=", value, "suoolierBrankCode");
+        public Criteria andSupplierBrankCodeLessThanOrEqualTo(String value) {
+            addCriterion("supplier_brank_code <=", value, "supplierBrankCode");
             return (Criteria) this;
         }
 
-        public Criteria andSuoolierBrankCodeLike(String value) {
-            addCriterion("suoolier_brank_code like", value, "suoolierBrankCode");
+        public Criteria andSupplierBrankCodeLike(String value) {
+            addCriterion("supplier_brank_code like", value, "supplierBrankCode");
             return (Criteria) this;
         }
 
-        public Criteria andSuoolierBrankCodeNotLike(String value) {
-            addCriterion("suoolier_brank_code not like", value, "suoolierBrankCode");
+        public Criteria andSupplierBrankCodeNotLike(String value) {
+            addCriterion("supplier_brank_code not like", value, "supplierBrankCode");
             return (Criteria) this;
         }
 
-        public Criteria andSuoolierBrankCodeIn(List<String> values) {
-            addCriterion("suoolier_brank_code in", values, "suoolierBrankCode");
+        public Criteria andSupplierBrankCodeIn(List<String> values) {
+            addCriterion("supplier_brank_code in", values, "supplierBrankCode");
             return (Criteria) this;
         }
 
-        public Criteria andSuoolierBrankCodeNotIn(List<String> values) {
-            addCriterion("suoolier_brank_code not in", values, "suoolierBrankCode");
+        public Criteria andSupplierBrankCodeNotIn(List<String> values) {
+            addCriterion("supplier_brank_code not in", values, "supplierBrankCode");
             return (Criteria) this;
         }
 
-        public Criteria andSuoolierBrankCodeBetween(String value1, String value2) {
-            addCriterion("suoolier_brank_code between", value1, value2, "suoolierBrankCode");
+        public Criteria andSupplierBrankCodeBetween(String value1, String value2) {
+            addCriterion("supplier_brank_code between", value1, value2, "supplierBrankCode");
             return (Criteria) this;
         }
 
-        public Criteria andSuoolierBrankCodeNotBetween(String value1, String value2) {
-            addCriterion("suoolier_brank_code not between", value1, value2, "suoolierBrankCode");
+        public Criteria andSupplierBrankCodeNotBetween(String value1, String value2) {
+            addCriterion("supplier_brank_code not between", value1, value2, "supplierBrankCode");
             return (Criteria) this;
         }
 

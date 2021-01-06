@@ -5,7 +5,8 @@ import lombok.Data;
 
 import java.util.Date;
 @Data
-public class Brand extends BaseEntity<String> {
+public class Brand extends BaseEntity<Long> {
+
 
     private String brandName;
 
@@ -14,14 +15,5 @@ public class Brand extends BaseEntity<String> {
     private String brandDesc;
 
     private String brandLogo;
-
-    private Date addTime;
-
-    private Long creatorId;
-
-    private Date updateTime;
-
-    private Long updateId;
-
 
 }
