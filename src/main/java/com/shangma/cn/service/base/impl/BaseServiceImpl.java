@@ -73,7 +73,6 @@ public class BaseServiceImpl<T, ID> implements BaseService<T, ID> {
     public int updateEntity(T entity) {
         ReflectionUtils.invokeMethod(entity, "setDate", null, null);
         return baseMapper.updateByPrimaryKey(entity);
-
     }
 
     /**

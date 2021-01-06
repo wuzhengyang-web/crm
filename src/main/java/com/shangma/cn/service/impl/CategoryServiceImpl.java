@@ -9,6 +9,7 @@ import com.shangma.cn.vo.PageVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,10 +18,12 @@ import java.util.stream.Collectors;
  * @create 2021-01-04 20:03
  */
 @Service
-public class CategoryServiceImpl extends BaseServiceImpl<Category,Long> implements CategoryService {
+public class CategoryServiceImpl extends BaseServiceImpl<Category, Long> implements CategoryService {
     @Autowired
     private CategoryMapper categoryMapper;
-    public List<Category> getTreeData(){
+
+    @Override
+    public List<Category> getTreeData() {
         /**
          * 查询所有
          *
@@ -34,21 +37,42 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category,Long> implemen
          */
         List<Category> categories = categoryMapper.selectByExample(null);
         //过滤出来一级数据
-        List<Category> root=categories.stream().filter(category -> category.getParentid().equals(0L)).collect(Collectors.toList());
-        root.forEach(item->{
-            getChildren(categories,item);
+        List<Category> root = categories.stream().filter(category -> category.getParentid().equals(0L)).collect(Collectors.toList());
+        root.forEach(item -> {
+            getChildren(categories, item);
         });
         return root;
     }
 
-    public void getChildren(List<Category> categories,Category category){
+    public void getChildren(List<Category> categories, Category category) {
         List<Category> childrenList = categories.stream().filter(item -> item.getParentid().equals(category.getId())).collect(Collectors.toList());
-        if (childrenList.size()>0){
+        if (childrenList.size() > 0) {
             category.setChildren(childrenList);
-            childrenList.forEach(item->{
-                getChildren(categories,item);
+            childrenList.forEach(item -> {
+                getChildren(categories, item);
             });
         }
+    }
 
+    @Override
+    public int batchDeleteByIds(List<Long> longs) {
+        Category category = categoryMapper.selectByPrimaryKey(longs.get(0));
+        List<Category> categories = categoryMapper.selectByExample(null);
+        List<Category> delCategories = new ArrayList<>();
+        delCategories.add(category);
+        deleteByParent(categories, category, delCategories);
+        return 1;
+    }
+
+    public void deleteByParent(List<Category> categories, Category category, List<Category> delCategories) {
+        List<Category> collect = categories.stream().filter(item -> item.getParentid().equals(category.getId())).collect(Collectors.toList());
+        if (collect.size() > 0) {
+            delCategories.addAll(collect);
+            collect.forEach(item -> {
+                deleteByParent(categories, item, delCategories);
+            });
+        } else {
+            delCategories.forEach(item -> categoryMapper.deleteByPrimaryKey(item.getId()));
+        }
     }
 }

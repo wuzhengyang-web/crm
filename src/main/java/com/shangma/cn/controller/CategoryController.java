@@ -22,6 +22,12 @@ public class CategoryController extends BaseController {
     @Autowired
     private CategoryService categoryService;
 
+    @GetMapping("getTreeData")
+    public AxiosResult<List<Category>> getTreeData(){
+        List<Category> list=categoryService.getTreeData();
+        return AxiosResult.success(list);
+    }
+
     @GetMapping
     public AxiosResult<PageVo<Category>> findPage(@RequestParam(defaultValue = "1")int currentPage,
                                                   @RequestParam(defaultValue = "5")int pageSize){
