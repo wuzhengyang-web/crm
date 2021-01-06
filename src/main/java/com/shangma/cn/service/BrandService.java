@@ -8,5 +8,5 @@ import com.shangma.cn.service.base.BaseService;
  * @author shangmaxueyuan
  * @create 2021-01-04 19:44
  */
-public interface BrandService extends BaseService<Brand,String> {
+public interface BrandService extends BaseService<Brand,Long> {
 }

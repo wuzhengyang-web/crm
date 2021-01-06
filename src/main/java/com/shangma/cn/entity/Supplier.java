@@ -3,9 +3,10 @@ package com.shangma.cn.entity;
 import com.shangma.cn.entity.base.BaseEntity;
 import lombok.Data;
 
-import java.util.Date;
+
 @Data
 public class Supplier extends BaseEntity<Long> {
+
 
     private String supplierName;
 
@@ -19,15 +20,6 @@ public class Supplier extends BaseEntity<Long> {
 
     private String supplierBrank;
 
-    private String suoolierBrankCode;
-
-    private Date addTime;
-
-    private Long creatorId;
-
-    private Date updateTime;
-
-    private Long updateId;
-
+    private String supplierBrankCode;
 
 }
