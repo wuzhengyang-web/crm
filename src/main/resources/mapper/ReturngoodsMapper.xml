@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shangma.cn.mapper.ReturngoodsMapper">
+  <resultMap id="BaseResultMap" type="com.shangma.cn.entity.Returngoods">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="good_id" jdbcType="BIGINT" property="goodId" />
+    <result column="tracking_inform" jdbcType="VARCHAR" property="trackingInform" />
+    <result column="configuration" jdbcType="VARCHAR" property="configuration" />
+    <result column="return_type" jdbcType="VARCHAR" property="returnType" />
+    <result column="after_id" jdbcType="BIGINT" property="afterId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, good_id, tracking_inform, configuration, return_type, after_id
+  </sql>
+  <select id="selectByExample" parameterType="com.shangma.cn.entity.ReturngoodsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_returngoods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_returngoods
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_returngoods
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.shangma.cn.entity.ReturngoodsExample">
+    delete from t_returngoods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.shangma.cn.entity.Returngoods">
+    insert into t_returngoods (id, good_id, tracking_inform, 
+      configuration, return_type, after_id
+      )
+    values (#{id,jdbcType=BIGINT}, #{goodId,jdbcType=BIGINT}, #{trackingInform,jdbcType=VARCHAR}, 
+      #{configuration,jdbcType=VARCHAR}, #{returnType,jdbcType=VARCHAR}, #{afterId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.shangma.cn.entity.Returngoods">
+    insert into t_returngoods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="goodId != null">
+        good_id,
+      </if>
+      <if test="trackingInform != null">
+        tracking_inform,
+      </if>
+      <if test="configuration != null">
+        configuration,
+      </if>
+      <if test="returnType != null">
+        return_type,
+      </if>
+      <if test="afterId != null">
+        after_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="goodId != null">
+        #{goodId,jdbcType=BIGINT},
+      </if>
+      <if test="trackingInform != null">
+        #{trackingInform,jdbcType=VARCHAR},
+      </if>
+      <if test="configuration != null">
+        #{configuration,jdbcType=VARCHAR},
+      </if>
+      <if test="returnType != null">
+        #{returnType,jdbcType=VARCHAR},
+      </if>
+      <if test="afterId != null">
+        #{afterId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.shangma.cn.entity.ReturngoodsExample" resultType="java.lang.Long">
+    select count(*) from t_returngoods
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update t_returngoods
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.goodId != null">
+        good_id = #{record.goodId,jdbcType=BIGINT},
+      </if>
+      <if test="record.trackingInform != null">
+        tracking_inform = #{record.trackingInform,jdbcType=VARCHAR},
+      </if>
+      <if test="record.configuration != null">
+        configuration = #{record.configuration,jdbcType=VARCHAR},
+      </if>
+      <if test="record.returnType != null">
+        return_type = #{record.returnType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.afterId != null">
+        after_id = #{record.afterId,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update t_returngoods
+    set id = #{record.id,jdbcType=BIGINT},
+      good_id = #{record.goodId,jdbcType=BIGINT},
+      tracking_inform = #{record.trackingInform,jdbcType=VARCHAR},
+      configuration = #{record.configuration,jdbcType=VARCHAR},
+      return_type = #{record.returnType,jdbcType=VARCHAR},
+      after_id = #{record.afterId,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shangma.cn.entity.Returngoods">
+    update t_returngoods
+    <set>
+      <if test="goodId != null">
+        good_id = #{goodId,jdbcType=BIGINT},
+      </if>
+      <if test="trackingInform != null">
+        tracking_inform = #{trackingInform,jdbcType=VARCHAR},
+      </if>
+      <if test="configuration != null">
+        configuration = #{configuration,jdbcType=VARCHAR},
+      </if>
+      <if test="returnType != null">
+        return_type = #{returnType,jdbcType=VARCHAR},
+      </if>
+      <if test="afterId != null">
+        after_id = #{afterId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shangma.cn.entity.Returngoods">
+    update t_returngoods
+    set good_id = #{goodId,jdbcType=BIGINT},
+      tracking_inform = #{trackingInform,jdbcType=VARCHAR},
+      configuration = #{configuration,jdbcType=VARCHAR},
+      return_type = #{returnType,jdbcType=VARCHAR},
+      after_id = #{afterId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
